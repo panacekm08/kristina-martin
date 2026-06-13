@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kristína &amp; Martin — 20. 6. 2026</title>
+  <meta name="description" content="Svadobná stránka Kristíny a Martina. Harmonogram, menu, zasadací poriadok a všetky informácie o našom veľkom dni." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Parisienne&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Navigácia -->
+  <header class="nav">
+    <a href="#hero" class="nav__logo">K &amp; M</a>
+    <nav class="nav__links">
+      <a href="#harmonogram">Harmonogram</a>
+      <a href="#miesto">Miesto</a>
+      <a href="#menu">Menu</a>
+      <a href="#zasadanie">Zasadací poriadok</a>
+      <a href="#galeria">Galéria</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section id="hero" class="hero">
+    <div class="hero__overlay"></div>
+    <div class="hero__content">
+      <p class="hero__intro">S láskou vás pozývame na našu svadbu</p>
+      <h1 class="hero__names">Kristína <span>&amp;</span> Martin</h1>
+      <p class="hero__date">20. júna 2026</p>
+      <div class="countdown" id="countdown" aria-label="Odpočítavanie do svadby">
+        <div class="countdown__item"><span id="cd-days">0</span><small>dní</small></div>
+        <div class="countdown__item"><span id="cd-hours">0</span><small>hodín</small></div>
+        <div class="countdown__item"><span id="cd-mins">0</span><small>minút</small></div>
+        <div class="countdown__item"><span id="cd-secs">0</span><small>sekúnd</small></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HARMONOGRAM -->
+  <section id="harmonogram" class="section section--schedule">
+    <p class="section__eyebrow">Sobota 20. 6. 2026</p>
+    <h2 class="section__title">Harmonogram dňa</h2>
+    <ul class="timeline">
+      <li class="timeline__item"><span class="timeline__time">14:00</span><div class="timeline__body"><h3>Pýtanie nevesty</h3><p>Začíname u Kristíny. Následne sa spoločným autobusom presunieme na obrad.</p></div></li>
+      <li class="timeline__item"><span class="timeline__time">15:00</span><div class="timeline__body"><h3>Svadobný obrad</h3><p>Farský kostol všetkých svätých. Slávnostné „áno".</p></div></li>
+      <li class="timeline__item"><span class="timeline__time">16:00</span><div class="timeline__body"><h3>Gratulácie</h3><p>Po obrade pred kostolom, do cca 16:30. Potom presun do Vendelínu.</p></div></li>
+      <li class="timeline__item"><span class="timeline__time">17:00</span><div class="timeline__body"><h3>Príchod do Vendelínu</h3><p>Ekorezort Vendelín — privítanie a prípitok.</p></div></li>
+      <li class="timeline__item"><span class="timeline__time">17:30</span><div class="timeline__body"><h3>Svadobná večera</h3><p>Slávnostná hostina, po nej prvý tanec. Po večeri nasleduje krájanie torty.</p></div></li>
+      <li class="timeline__item"><span class="timeline__time">20:00</span><div class="timeline__body"><h3>Quiz</h3><p>Spoločná zábava a súťaženie.</p></div></li>
+      <li class="timeline__item"><span class="timeline__time">22:50</span><div class="timeline__body"><h3>Čepčenie</h3><p>Tradičný svadobný obrad.</p></div></li>
+      <li class="timeline__item"><span class="timeline__time">Polnoc</span><div class="timeline__body"><h3>Hádzanie kytice a podväzku</h3><p>A potom tancujeme až do rána.</p></div></li>
+    </ul>
+    <p class="section__note">O hudbu a zábavu sa postará <strong>DJ Húsenica</strong> a špeciálny hudobný hosť. ♪</p>
+  </section>
+
+  <!-- MIESTO & DOPRAVA -->
+  <section id="miesto" class="section section--venue">
+    <p class="section__eyebrow">Ako to celé bude</p>
+    <h2 class="section__title">Miesto &amp; doprava</h2>
+
+    <div class="info-panel">
+      <h3>Ako to celé pôjde</h3>
+      <ul>
+        <li><strong>Pýtanie</strong> začína o <strong>14:00 u Kristíny</strong> (Okružná 1422, Púchov).</li>
+        <li>Odtiaľ sa <strong>spoločným autobusom</strong> presunieme na obrad do kostola.</li>
+        <li>Po obrade ideme <strong>spoločným autobusom do Vendelínu</strong> — prípadne vlastným autom.</li>
+        <li>Z hostiny je <strong>odvoz zabezpečený individuálne šoférom</strong> podľa potreby.</li>
+      </ul>
+    </div>
+
+    <div class="parking">
+      <h3>Parkovanie</h3>
+      <p class="parking__free">Zdarma od <strong>soboty 12:00</strong> až do <strong>pondelka</strong>.</p>
+      <div class="parking__opts">
+        <div class="parking__opt">
+          <span class="parking__where">Pri pýtaní</span>
+          <p>Pred Kristínou na <strong>Okružnej</strong>.</p>
+        </div>
+        <div class="parking__opt">
+          <span class="parking__where">Pri kostole</span>
+          <p>Pred <strong>Kikou a jej panelákom</strong>, pred kostolom na ulici <strong>Železničná</strong>, alebo pred <strong>Hradiskom</strong>.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="places">
+      <article class="place">
+        <p class="place__step">14:00</p>
+        <h3>Pýtanie nevesty</h3>
+        <p class="place__addr">U Kristíny<br />Okružná 1422, Púchov</p>
+        <div class="place__map">
+          <iframe title="Mapa – pýtanie" src="https://www.google.com/maps?q=49.1295743,18.3265057&z=16&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <a class="btn" href="https://maps.app.goo.gl/nPqGGrHbHxbp2iDb9" target="_blank" rel="noopener">Navigovať</a>
+      </article>
+
+      <article class="place">
+        <p class="place__step">15:00 – 16:30</p>
+        <h3>Obrad &amp; gratulácie</h3>
+        <p class="place__addr">Farský kostol všetkých svätých, Púchov<br /><span class="place__hint">Parkovanie: pred Kikou, na ul. Železničná alebo pred Hradiskom (zdarma)</span></p>
+        <div class="place__map">
+          <iframe title="Mapa – kostol" src="https://www.google.com/maps?q=49.113974,18.3253343&z=16&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <a class="btn" href="https://maps.app.goo.gl/VTtbqz8XuKLbEd6r8" target="_blank" rel="noopener">Navigovať</a>
+      </article>
+
+      <article class="place">
+        <p class="place__step">17:00</p>
+        <h3>Hostina</h3>
+        <p class="place__addr">Ekorezort Vendelín<br /><span class="place__hint">Príchod 17:00 · večera 17:30</span></p>
+        <div class="place__map">
+          <iframe title="Mapa – Vendelín" src="https://www.google.com/maps?q=49.0390145,18.4703371&z=15&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <a class="btn" href="https://maps.app.goo.gl/YKwABD82BBCNRbLe6" target="_blank" rel="noopener">Navigovať</a>
+      </article>
+    </div>
+  </section>
+
+  <!-- MENU -->
+  <section id="menu" class="section section--menu">
+    <p class="section__eyebrow">Čo vám naservírujeme</p>
+    <h2 class="section__title">Svadobné menu</h2>
+    <p class="section__lead">Pre každého sa nájde to pravé. Spoločným dezertom je naša svadobná torta.</p>
+    <div class="menu-grid" id="menuGrid"><!-- generuje script.js --></div>
+  </section>
+
+  <!-- ZASADACÍ PORIADOK -->
+  <section id="zasadanie" class="section section--seating">
+    <p class="section__eyebrow">Kde budete sedieť</p>
+    <h2 class="section__title">Zasadací poriadok</h2>
+
+    <div class="seat-search">
+      <label for="seatInput">Napíš svoje meno a nájdi svoj stôl:</label>
+      <input type="text" id="seatInput" placeholder="napr. Janka" autocomplete="off" />
+      <div class="seat-result" id="seatResult" role="status" aria-live="polite"></div>
+    </div>
+
+    <div class="seating-board" id="seatingBoard"><!-- generuje script.js --></div>
+  </section>
+
+  <!-- GALÉRIA -->
+  <section id="galeria" class="section section--gallery">
+    <p class="section__eyebrow">Pár momentov</p>
+    <h2 class="section__title">Galéria</h2>
+    <p class="section__lead">Zopár našich momentov. <em>Ďalšie pridáme.</em></p>
+    <div class="gallery">
+      <div class="gallery__item" style="background-image:url('896cd380-350a-4199-b03f-81c19b7c47d5.JPEG')"></div>
+      <div class="gallery__item" style="background-image:url('IMG_1847.JPEG')"></div>
+      <div class="gallery__item" style="background-image:url('IMG_8515.JPEG')"></div>
+    </div>
+  </section>
+
+  <!-- PÄTA -->
+  <footer class="footer">
+    <p class="footer__monogram">K &amp; M</p>
+    <p class="footer__names">Kristína &amp; Martin</p>
+    <p class="footer__date">20. 06. 2026</p>
+    <p class="footer__note">Tešíme sa na vás ♥</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
