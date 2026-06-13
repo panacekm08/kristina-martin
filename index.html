@@ -4,13 +4,47 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kristína &amp; Martin — 20. 6. 2026</title>
-  <meta name="description" content="Svadobná stránka Kristíny a Martina. Harmonogram, menu, zasadací poriadok a všetky informácie o našom veľkom dni." />
+  <meta name="description" content="Pozývame vás na našu svadbu. Harmonogram, menu, zasadací poriadok a všetky informácie o našom veľkom dni." />
+
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+
+  <!-- ====== NÁHĽAD PRI ZDIEĽANÍ (WhatsApp, Messenger, FB…) ======
+       TODO: nahraď https://VASA-ADRESA reálnou adresou stránky (vrátane https://). -->
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="sk_SK" />
+  <meta property="og:title" content="Kristína &amp; Martin — 20. júna 2026" />
+  <meta property="og:description" content="S láskou vás pozývame na našu svadbu. Kliknite a pozrite si všetky informácie." />
+  <meta property="og:url" content="https://VASA-ADRESA/" />
+  <meta property="og:image" content="https://VASA-ADRESA/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Kristína &amp; Martin — 20. júna 2026" />
+  <meta name="twitter:description" content="S láskou vás pozývame na našu svadbu." />
+  <meta name="twitter:image" content="https://VASA-ADRESA/og-image.jpg" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Parisienne&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+
+  <!-- ÚVODNÁ ANIMÁCIA -->
+  <div id="intro" class="intro">
+    <div class="intro__inner">
+      <svg class="intro__rings" viewBox="0 0 130 78" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <g fill="none" stroke="#b89766" stroke-width="2.2" stroke-linecap="round">
+          <circle class="intro__ring" cx="52" cy="46" r="22"/>
+          <circle class="intro__ring" cx="80" cy="46" r="22"/>
+        </g>
+        <path class="intro__gem" d="M80 6 l6 10 -6 10 -6 -10 z" fill="#b89766"/>
+      </svg>
+      <p class="intro__names">Kristína &amp; Martin</p>
+      <p class="intro__date">20 · 06 · 2026</p>
+    </div>
+  </div>
 
   <!-- Navigácia -->
   <header class="nav">
@@ -67,7 +101,7 @@
       <ul>
         <li><strong>Pýtanie</strong> začína o <strong>14:00 u Kristíny</strong> (Okružná 1422, Púchov).</li>
         <li>Odtiaľ sa <strong>spoločným autobusom</strong> presunieme na obrad do kostola.</li>
-        <li>Po obrade ideme <strong>spoločným autobusom do Vendelínu</strong> — prípadne vlastným autom.</li>
+        <li>Po obrade ideme <strong>spoločným autobusom do Vendelínu</strong>.</li>
         <li>Z hostiny je <strong>odvoz zabezpečený individuálne šoférom</strong> podľa potreby.</li>
       </ul>
     </div>
@@ -82,7 +116,7 @@
         </div>
         <div class="parking__opt">
           <span class="parking__where">Pri kostole</span>
-          <p>Pred <strong>Kikou a jej panelákom</strong>, pred kostolom na ulici <strong>Železničná</strong>, alebo pred <strong>Hradiskom</strong>.</p>
+          <p>Pred kostolom na ulici <strong>Železničná</strong>, alebo pred <strong>Hradiskom</strong>.</p>
         </div>
       </div>
     </div>
@@ -101,7 +135,7 @@
       <article class="place">
         <p class="place__step">15:00 – 16:30</p>
         <h3>Obrad &amp; gratulácie</h3>
-        <p class="place__addr">Farský kostol všetkých svätých, Púchov<br /><span class="place__hint">Parkovanie: pred Kikou, na ul. Železničná alebo pred Hradiskom (zdarma)</span></p>
+        <p class="place__addr">Farský kostol všetkých svätých, Púchov<br /><span class="place__hint">Parkovanie: na ul. Železničná alebo pred Hradiskom (zdarma)</span></p>
         <div class="place__map">
           <iframe title="Mapa – kostol" src="https://www.google.com/maps?q=49.113974,18.3253343&z=16&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
@@ -146,21 +180,51 @@
   <section id="galeria" class="section section--gallery">
     <p class="section__eyebrow">Pár momentov</p>
     <h2 class="section__title">Galéria</h2>
-    <p class="section__lead">Zopár našich momentov. <em>Ďalšie pridáme.</em></p>
+    <p class="section__lead">Zopár našich momentov.</p>
     <div class="gallery">
-      <div class="gallery__item" style="background-image:url('896cd380-350a-4199-b03f-81c19b7c47d5.JPEG')"></div>
-      <div class="gallery__item" style="background-image:url('IMG_1847.JPEG')"></div>
+      <div class="gallery__item" style="background-image:url('IMG_0220.JPEG')"></div>
+      <div class="gallery__item" style="background-image:url('IMG_0227.JPEG')"></div>
+      <div class="gallery__item" style="background-image:url('IMG_0225.JPEG')"></div>
       <div class="gallery__item" style="background-image:url('IMG_8515.JPEG')"></div>
+      <div class="gallery__item" style="background-image:url('IMG_0575.JPEG')"></div>
+      <div class="gallery__item" style="background-image:url('IMG_2307.JPEG')"></div>
+      <div class="gallery__item" style="background-image:url('IMG_9675.JPEG')"></div>
+      <div class="gallery__item" style="background-image:url('IMG_7626.JPEG')"></div>
+      <div class="gallery__item" style="background-image:url('IMG_0656.JPEG')"></div>
+      <div class="gallery__item" style="background-image:url('IMG_5927.JPEG')"></div>
+      <div class="gallery__item" style="background-image:url('IMG_0206.JPEG')"></div>
+      <div class="gallery__item" style="background-image:url('896cd380-350a-4199-b03f-81c19b7c47d5.JPEG')"></div>
     </div>
   </section>
 
   <!-- PÄTA -->
   <footer class="footer">
+    <div class="footer__rings" aria-hidden="true">
+      <svg viewBox="0 0 100 56" width="84" height="47" xmlns="http://www.w3.org/2000/svg">
+        <g fill="none" stroke="#b89766" stroke-width="2.4">
+          <circle cx="41" cy="31" r="16"/>
+          <circle cx="61" cy="31" r="16"/>
+        </g>
+        <!-- prekríženie (efekt prepletenia) -->
+        <path d="M49 17.5 a16 16 0 0 1 7.5 9.5" fill="none" stroke="#b89766" stroke-width="2.4" stroke-linecap="round"/>
+        <!-- kamienok na ľavom prsteni -->
+        <path d="M41 8 l3.4 5.5 -3.4 5.5 -3.4 -5.5 z" fill="#b89766"/>
+      </svg>
+    </div>
     <p class="footer__monogram">K &amp; M</p>
     <p class="footer__names">Kristína &amp; Martin</p>
     <p class="footer__date">20. 06. 2026</p>
     <p class="footer__note">Tešíme sa na vás ♥</p>
   </footer>
+
+  <!-- LIGHTBOX GALÉRIA -->
+  <div id="lightbox" class="lightbox" aria-hidden="true">
+    <button class="lightbox__close" aria-label="Zavrieť">&times;</button>
+    <button class="lightbox__nav lightbox__prev" aria-label="Predchádzajúca">&#8249;</button>
+    <img class="lightbox__img" alt="Fotka" />
+    <button class="lightbox__nav lightbox__next" aria-label="Ďalšia">&#8250;</button>
+    <div class="lightbox__counter"></div>
+  </div>
 
   <script src="script.js"></script>
 </body>

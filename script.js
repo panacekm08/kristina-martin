@@ -222,3 +222,110 @@ document.querySelectorAll("section.section").forEach((sec) => {
   d.innerHTML = DIVIDER_SVG;
   sec.parentNode.insertBefore(d, sec);
 });
+
+// =============================================================
+//  ÚVODNÁ ANIMÁCIA – skry overlay po dohraní
+// =============================================================
+(function () {
+  const intro = document.getElementById("intro");
+  if (!intro) return;
+  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const delay = reduced ? 400 : 2600;
+  const skry = () => { intro.classList.add("intro--hide"); setTimeout(() => intro.remove(), 850); };
+  setTimeout(skry, delay);
+  intro.addEventListener("click", skry); // klik preskočí
+})();
+
+// =============================================================
+//  FLORAL ROŽKY – injektuj do hero a sekcií
+// =============================================================
+const CORNER_SVG = `
+<svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <g stroke="currentColor" stroke-width="1.4" stroke-linecap="round" fill="none">
+    <path d="M10 10 H74"/><path d="M10 10 V74"/>
+    <path d="M10 20 H56" opacity="0.5"/><path d="M20 10 V56" opacity="0.5"/>
+    <path d="M10 44 C34 44 44 34 44 10"/>
+    <path d="M10 62 C44 62 62 44 62 10" opacity="0.7"/>
+  </g>
+  <g fill="currentColor">
+    <ellipse cx="31" cy="31" rx="5.5" ry="2.3" transform="rotate(45 31 31)"/>
+    <ellipse cx="46" cy="22" rx="4.6" ry="2" transform="rotate(63 46 22)"/>
+    <ellipse cx="22" cy="46" rx="4.6" ry="2" transform="rotate(27 22 46)"/>
+    <circle cx="10" cy="10" r="2.2"/>
+    <circle cx="62" cy="62" r="1.8"/>
+  </g>
+</svg>`;
+
+function pridajRozky(el) {
+  ["tl", "tr", "bl", "br"].forEach((poz) => {
+    const c = document.createElement("div");
+    c.className = "corner corner--" + poz;
+    c.innerHTML = CORNER_SVG;
+    el.appendChild(c);
+  });
+}
+const hero = document.querySelector(".hero");
+if (hero) pridajRozky(hero);
+document.querySelectorAll("section.section").forEach(pridajRozky);
+
+// =============================================================
+//  SCROLL REVEAL – jemné vynáranie sekcií a fotiek
+// =============================================================
+(function () {
+  const ciele = [...document.querySelectorAll("section.section, .gallery__item, .place, .menu-card")];
+  if (!("IntersectionObserver" in window) || !ciele.length) return;
+  ciele.forEach((el) => el.classList.add("reveal"));
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) { e.target.classList.add("in-view"); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+  ciele.forEach((el) => io.observe(el));
+})();
+
+// =============================================================
+//  LIGHTBOX GALÉRIA
+// =============================================================
+(function () {
+  const lb = document.getElementById("lightbox");
+  const items = [...document.querySelectorAll(".gallery__item")];
+  if (!lb || !items.length) return;
+
+  const imgEl = lb.querySelector(".lightbox__img");
+  const counter = lb.querySelector(".lightbox__counter");
+  // vytiahni URL z background-image každej položky
+  const fotky = items.map((el) => {
+    const bg = el.style.backgroundImage;
+    return bg.slice(bg.indexOf('"') + 1, bg.lastIndexOf('"'));
+  });
+  let idx = 0;
+
+  function ukaz(i) {
+    idx = (i + fotky.length) % fotky.length;
+    imgEl.src = fotky[idx];
+    counter.textContent = `${idx + 1} / ${fotky.length}`;
+  }
+  function otvor(i) { ukaz(i); lb.classList.add("is-open"); lb.setAttribute("aria-hidden", "false"); }
+  function zavri() { lb.classList.remove("is-open"); lb.setAttribute("aria-hidden", "true"); }
+
+  items.forEach((el, i) => el.addEventListener("click", () => otvor(i)));
+  lb.querySelector(".lightbox__close").addEventListener("click", zavri);
+  lb.querySelector(".lightbox__next").addEventListener("click", (e) => { e.stopPropagation(); ukaz(idx + 1); });
+  lb.querySelector(".lightbox__prev").addEventListener("click", (e) => { e.stopPropagation(); ukaz(idx - 1); });
+  lb.addEventListener("click", (e) => { if (e.target === lb) zavri(); });
+  document.addEventListener("keydown", (e) => {
+    if (!lb.classList.contains("is-open")) return;
+    if (e.key === "Escape") zavri();
+    if (e.key === "ArrowRight") ukaz(idx + 1);
+    if (e.key === "ArrowLeft") ukaz(idx - 1);
+  });
+  // swipe na mobile
+  let x0 = null;
+  lb.addEventListener("touchstart", (e) => { x0 = e.touches[0].clientX; }, { passive: true });
+  lb.addEventListener("touchend", (e) => {
+    if (x0 === null) return;
+    const dx = e.changedTouches[0].clientX - x0;
+    if (Math.abs(dx) > 45) ukaz(idx + (dx < 0 ? 1 : -1));
+    x0 = null;
+  }, { passive: true });
+})();

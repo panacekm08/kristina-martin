@@ -204,10 +204,66 @@ em { color: var(--terra); font-style: italic; }
 
 /* ============================================ PÄTA ============================================ */
 .footer { text-align: center; padding: 4rem 1.5rem; background: var(--paper); border-top: 1px solid rgba(0,0,0,0.05); }
+.footer__rings { margin-bottom: 1rem; line-height: 0; }
+.footer__rings svg { opacity: 0.95; }
 .footer__monogram { font-family: var(--font-display); font-size: 1.6rem; letter-spacing: 4px; color: var(--gold); }
 .footer__names { font-family: var(--font-script); font-size: 2.4rem; color: var(--sage-deep); margin-top: 0.3rem; }
 .footer__date { letter-spacing: 3px; color: var(--sage); margin: 0.5rem 0; font-size: 0.85rem; }
 .footer__note { color: var(--terra); font-family: var(--font-display); font-style: italic; font-size: 1.1rem; }
+
+/* ============================================ ÚVODNÁ ANIMÁCIA ============================================ */
+.intro {
+  position: fixed; inset: 0; z-index: 1000; background: var(--cream);
+  display: flex; align-items: center; justify-content: center;
+  transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+.intro--hide { opacity: 0; visibility: hidden; }
+.intro__inner { text-align: center; }
+.intro__rings { width: 150px; height: auto; }
+.intro__ring { stroke-dasharray: 140; stroke-dashoffset: 140; animation: ringDraw 1.4s ease forwards; }
+.intro__ring:nth-of-type(2) { animation-delay: 0.25s; }
+.intro__gem { opacity: 0; animation: gemFade 0.5s ease forwards 1.5s; }
+.intro__names { font-family: var(--font-script); font-size: 2.6rem; color: var(--sage-deep); margin-top: 0.6rem; opacity: 0; animation: introUp 0.8s ease forwards 1s; }
+.intro__date { letter-spacing: 5px; color: var(--gold); font-size: 0.82rem; margin-top: 0.3rem; opacity: 0; animation: introUp 0.8s ease forwards 1.25s; }
+@keyframes ringDraw { to { stroke-dashoffset: 0; } }
+@keyframes gemFade { to { opacity: 1; } }
+@keyframes introUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+
+/* ============================================ FLORAL ROŽKY ============================================ */
+.corner { position: absolute; pointer-events: none; color: var(--gold); z-index: 2; }
+.corner svg { width: 100%; height: 100%; display: block; }
+.corner--tl { top: 0; left: 0; }
+.corner--tr { top: 0; right: 0; transform: scaleX(-1); }
+.corner--bl { bottom: 0; left: 0; transform: scaleY(-1); }
+.corner--br { bottom: 0; right: 0; transform: scale(-1, -1); }
+/* hero – výraznejšie, svetlozlatá kvôli kontrastu na fotke */
+.hero .corner { width: clamp(70px, 12vw, 130px); height: clamp(70px, 12vw, 130px); color: #e7d6b0; opacity: 0.9; margin: 14px; }
+/* sekcie – jemné */
+.section { position: relative; }
+.section > .corner { width: 58px; height: 58px; opacity: 0.38; }
+
+/* ============================================ SCROLL REVEAL ============================================ */
+.reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.8s ease, transform 0.8s ease; }
+.reveal.in-view { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1 !important; transform: none !important; transition: none; }
+  .intro__ring, .intro__gem, .intro__names, .intro__date { animation: none; opacity: 1; stroke-dashoffset: 0; }
+}
+
+/* ============================================ LIGHTBOX ============================================ */
+.gallery__item { cursor: pointer; }
+.lightbox {
+  position: fixed; inset: 0; z-index: 1100; background: rgba(30, 32, 27, 0.93);
+  display: none; align-items: center; justify-content: center;
+}
+.lightbox.is-open { display: flex; }
+.lightbox__img { max-width: 90vw; max-height: 84vh; border-radius: 6px; box-shadow: 0 12px 44px rgba(0,0,0,.55); }
+.lightbox__close { position: absolute; top: 14px; right: 22px; font-size: 2.6rem; line-height: 1; }
+.lightbox__nav { position: absolute; top: 50%; transform: translateY(-50%); font-size: 3rem; padding: 0 1rem; opacity: 0.85; }
+.lightbox__prev { left: 6px; } .lightbox__next { right: 6px; }
+.lightbox__close, .lightbox__nav { background: none; border: none; color: #fff; cursor: pointer; transition: color 0.15s; }
+.lightbox__close:hover, .lightbox__nav:hover { color: var(--gold); }
+.lightbox__counter { position: absolute; bottom: 16px; left: 50%; transform: translateX(-50%); color: rgba(255,255,255,.85); font-size: 0.82rem; letter-spacing: 2px; }
 
 /* ============================================ MOBIL ============================================ */
 @media (max-width: 768px) {
@@ -233,6 +289,12 @@ em { color: var(--terra); font-style: italic; }
 
   .gallery { grid-template-columns: repeat(2, 1fr); }
   .section-divider svg { width: 170px; }
+
+  .section > .corner { display: none; }        /* rožky sekcií len na väčších displejoch */
+  .hero .corner { margin: 6px; }
+  .lightbox__nav { font-size: 2.4rem; padding: 0 0.4rem; }
+  .lightbox__img { max-width: 94vw; }
+  .intro__names { font-size: 2.1rem; }
 }
 
 @media (max-width: 420px) {
